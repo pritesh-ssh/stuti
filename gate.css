@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color-pink: #feecea;
+    --color-white: #fff;
+    --color-black: #333;
+    --color-text-pink: #FF7882;
+    --color-heart: #FF7882;
+    --color-border: #DACCBF;
+}
+html{
+    height: 100%;
+}
+body {
+    position: relative;
+    font-size: 16px;
+    height: 100%;
+    background-image: linear-gradient(var(--color-pink), var(--color-pink));
+}
+#gate-wrapper{
+    position: relative;
+    background-color: transparent;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255,1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent);
+    height: 100%;
+    min-height: 100vh;
+    background-size: 80px 80px;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- flags ---------- */
+.flag__birthday{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-200px);
+    animation: translateYFlag 1.5s .3s forwards;
+}
+@keyframes translateYFlag{
+    to{
+        transform: translateY(-10px);
+    }
+}
+.flag__birthday .flag__left{
+    transform: rotate(-10deg) translate(-20px,30px);
+}
+.flag__birthday .flag__right{
+    transform: rotate(10deg) translate(20px,30px) scaleX(-1);
+}
+
+/* ---------- center stage ---------- */
+.gate-content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 6rem 1rem 4rem;
+    margin-top: 0;
+}
+.gate-title{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Titan One", sans-serif;
+    font-size: 3rem;
+    perspective: 1000px;
+    z-index: 2;
+}
+.gate-title .line{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    text-shadow: 4px 4px var(--color-black),
+                -4px 4px var(--color-black),
+                4px -4px var(--color-black),
+                -4px -4px var(--color-black),
+                4px 8px 0 var(--color-black);
+}
+.gate-title .line--one{
+    color: var(--color-white);
+}
+.gate-title .line--two{
+    color: var(--color-text-pink);
+}
+.gate-title .line span{
+    transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
+    animation: txtTranslateY .5s var(--t) forwards;
+}
+.gate-title .line span.space{
+    width: .5em;
+}
+@keyframes txtTranslateY{
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.gate-title .hat{
+    position: absolute;
+    right: -110px;
+    top: -350px;
+    transform: rotate(-40deg);
+    z-index: -1;
+    animation: topHat 3s 1.6s forwards ease;
+}
+@keyframes topHat{
+    20%, 30%{
+        top: -40px;
+        transform-origin: left;
+        transform: rotate(-40deg);
+    }
+    35%, 100%{
+        top: -40px;
+        transform: rotate(0deg);
+    }
+}
+
+/* ---------- subtitle pill ---------- */
+.gate-subtitle{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--color-text-pink);
+    color: var(--color-black);
+    border: 3px solid var(--color-black);
+    border-radius: 50px;
+    padding: 4px 26px;
+    margin-top: 26px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    transform: scale(0);
+    animation: scaleCricle 1.6s 1.9s forwards ease-in-out;
+    z-index: 2;
+}
+
+/* ---------- countdown ---------- */
+.countdown{
+    position: relative;
+    display: flex;
+    gap: 18px;
+    margin-top: 40px;
+    transform: scale(0);
+    animation: scaleCricle 1.8s 2.3s forwards ease-in-out;
+    z-index: 2;
+}
+.countdown .unit{
+    position: relative;
+    width: 116px;
+    padding: 14px 8px 10px;
+    background-color: var(--color-white);
+    border: 4px solid var(--color-black);
+    border-radius: 22px;
+    box-shadow: 6px 6px 0 var(--color-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.countdown .unit .num{
+    font-family: "Titan One", sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--color-text-pink);
+    text-shadow: 2px 2px var(--color-black),
+                -2px 2px var(--color-black),
+                2px -2px var(--color-black),
+                -2px -2px var(--color-black);
+    letter-spacing: 2px;
+}
+.countdown .unit .label{
+    margin-top: 8px;
+    font-family: "Sriracha", cursive;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-black);
+}
+.countdown .unit .num.pop{
+    animation: flipIn .45s ease-out;
+}
+@keyframes flipIn{
+    0%{
+        transform: translateY(-8px) scale(1.25);
+        opacity: .35;
+    }
+    60%{
+        transform: translateY(0) scale(.92);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+.countdown.celebrating .unit{
+    animation: celebrate 1s infinite ease-in-out;
+}
+/* child 1 is .balloon_one, so the four units are children 2-5 */
+.countdown.celebrating .unit:nth-child(3){ animation-delay: .12s; }
+.countdown.celebrating .unit:nth-child(4){ animation-delay: .24s; }
+.countdown.celebrating .unit:nth-child(5){ animation-delay: .36s; }
+@keyframes celebrate{
+    0%, 100%{
+        transform: translateY(0) rotate(0deg);
+    }
+    50%{
+        transform: translateY(-10px) rotate(-2deg);
+    }
+}
+
+/* balloons flanking the countdown */
+.countdown .balloon_one{
+    position: absolute;
+    top: -130px;
+    left: -155px;
+    animation: balloon1 2s infinite linear;
+    z-index: -1;
+}
+@keyframes balloon1{
+    0%, 50%, 100%{
+        transform-origin: bottom right;
+        transform: rotate(0deg);
+    }
+    25%{
+        transform-origin: bottom right;
+        transform: rotate(3deg);
+    }
+    75%{
+        transform-origin: bottom right;
+        transform: rotate(-3deg);
+    }
+}
+.countdown .balloon_two{
+    position: absolute;
+    top: -110px;
+    right: -150px;
+    transform: rotate(10deg);
+    animation: balloon2 2s infinite linear;
+    z-index: -1;
+}
+@keyframes balloon2 {
+    0%, 50%, 100%{
+        transform-origin: bottom left;
+        transform: rotate(10deg);
+    }
+    25%{
+        transform-origin: bottom left;
+        transform: rotate(7deg);
+    }
+    75%{
+        transform-origin: bottom left;
+        transform: rotate(13deg);
+    }
+}
+
+/* ---------- lock note + unlock button ---------- */
+.lock__note{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 100%;
+    margin-top: 34px;
+    font-family: "Sriracha", cursive;
+    font-size: 1rem;
+    color: var(--color-black);
+    opacity: 0;
+    animation: fadeIn 1.2s 3.2s forwards;
+    z-index: 2;
+}
+.lock__note i{
+    color: var(--color-text-pink);
+}
+@keyframes fadeIn{
+    to{ opacity: 1; }
+}
+.lock__note.hidden{
+    display: none;
+}
+
+.unlock{
+    display: none;
+    margin-top: 30px;
+    transform: scale(0);
+    z-index: 2;
+}
+.unlock.is-live{
+    display: block;
+    animation: scaleCricle 1.4s forwards ease-in-out;
+}
+#btn__unlock{
+    position: relative;
+    background-color: var(--color-text-pink);
+    color: var(--color-black);
+    text-decoration: none;
+    outline: none;
+    padding: 8px 22px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    border: 3px solid var(--color-black);
+    font-family: "Sriracha", cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+#btn__unlock i{
+    margin-left: 8px;
+}
+#btn__unlock:hover{
+    border-color: var(--color-heart);
+    background-color: var(--color-heart);
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#btn__unlock:hover i{
+    animation: rotateHeart 1s infinite linear;
+}
+#btn__unlock:active{
+    transform: scale(0.7);
+}
+@keyframes rotateHeart{
+    0%, 50%, 100%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(12deg);
+    }
+    75%{
+        transform: rotate(-12deg);
+    }
+}
+
+.fa-heart{
+    color: var(--color-heart);
+    filter: drop-shadow(0 0 3px var(--color-heart));
+    animation: scaleHeart 1s infinite linear;
+}
+@keyframes scaleHeart{
+    50%{
+        transform: scale(1.2);
+    }
+}
+
+@keyframes scaleCricle {
+    0%{
+        transform: scale(0);
+    }
+    10%{
+        transform: scale(1.3);
+    }
+    20%{
+        transform: scale(0.7);
+    }
+    30%, 100%{
+        transform: scale(1);
+    }
+}
+
+/* ---------- already-unlocked snap ----------
+   If the page is opened at (or after) the target time, the staged entrance
+   animations have not run yet. Force everything to its final state so the
+   celebration is not staring at an empty page. Harmless once they have run. */
+.gate--open .gate-title .line span{
+    animation: none;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+.gate--open .gate-title .hat{
+    animation: none;
+    top: -40px;
+    transform: rotate(0deg);
+}
+.gate--open .flag__birthday{
+    animation: none;
+    transform: translateY(-10px);
+}
+.gate--open .gate-subtitle,
+.gate--open .countdown,
+.gate--open .decorate_flower--one,
+.gate--open .decorate_flower--two,
+.gate--open .decorate_flower--three,
+.gate--open .smiley__icon{
+    animation: none;
+    transform: scale(1);
+}
+.gate--open .decorate_star{
+    transform: scale(1);
+    animation: scaleStar 2s infinite ease-in-out;
+}
+.gate--open .unlock.is-live{
+    animation: scaleCricle 1.4s .3s forwards ease-in-out;
+}
+
+/* ---------- decoration ---------- */
+.decorate_star{
+    position: absolute;
+    transform: scale(0);
+    background-color: var(--color-black);
+    clip-path: polygon(0 50%, 35% 35%, 50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%);
+    animation: scaleCricle 3s var(--t) forwards,
+            scaleStar 2s 4s infinite ease-in-out;
+}
+.decorate_star.star1{
+    width: 20px;
+    height: 20px;
+    top: 95px;
+    left: 260px;
+}
+.decorate_star.star2{
+    width: 15px;
+    height: 20px;
+    top: 55px;
+    right: 320px;
+}
+.decorate_star.star3{
+    width: 14px;
+    height: 14px;
+    top: 300px;
+    left: 130px;
+}
+.decorate_star.star4{
+    width: 18px;
+    height: 18px;
+    bottom: 70px;
+    left: 45px;
+}
+.decorate_star.star5{
+    width: 16px;
+    height: 18px;
+    bottom: 160px;
+    right: 130px;
+}
+@keyframes scaleStar {
+    25%{
+        transform: scale(0.8);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}
+.decorate_flower--one,
+.decorate_flower--two,
+.decorate_flower--three{
+    position: absolute;
+    transform: scale(0);
+    animation: scaleCricle 3s var(--t) forwards ease-in-out;
+}
+.decorate_flower--one{
+    top: 240px;
+    left: 60px;
+}
+.decorate_flower--two{
+    top: 190px;
+    right: 90px;
+}
+.decorate_flower--three{
+    bottom: 210px;
+    left: 300px;
+}
+.decorate_bottom{
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+}
+.smiley__icon{
+    position: absolute;
+    bottom: 90px;
+    left: 120px;
+    transform: scale(0);
+    animation: scaleCricle 3s 3.4s forwards ease-in-out;
+}
+
+/* ---------- confetti canvas ---------- */
+#confetti{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* ---------- mobile ---------- */
+@media screen and (max-width: 658px){
+    .flag__birthday .flag__left {
+        transform: rotate(-10deg) translate(-119px,3px);
+    }
+    .flag__birthday .flag__right {
+        transform: rotate(10deg) translate(-106px,39px) scaleX(-1);
+    }
+    .gate-content{
+        margin-top: 0;
+        padding-top: 5rem;
+    }
+    .gate-title{
+        font-size: 1.9rem;
+        letter-spacing: 4px;
+    }
+    .gate-title .hat{
+        right: -70px;
+    }
+    .gate-title .hat img{
+        width: 80px;
+    }
+    @keyframes topHat{
+        20%, 30%{
+            top: -22px;
+            transform-origin: left;
+            transform: rotate(-40deg);
+        }
+        35%, 100%{
+            top: -22px;
+            transform: rotate(0deg);
+        }
+    }
+    .gate-subtitle{
+        font-size: 1.1rem;
+        padding: 4px 16px;
+        margin-top: 18px;
+    }
+    .countdown{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        max-width: 280px;
+        margin-top: 30px;
+    }
+    .countdown .unit{
+        width: 128px;
+        border-width: 3px;
+        box-shadow: 4px 4px 0 var(--color-black);
+    }
+    .countdown .unit .num{
+        font-size: 2.4rem;
+    }
+    .countdown .balloon_one{
+        top: -90px;
+        left: -60px;
+    }
+    .countdown .balloon_two{
+        top: -80px;
+        right: -58px;
+    }
+    .countdown .balloon_one img,
+    .countdown .balloon_two img{
+        width: 70px;
+    }
+    .lock__note{
+        margin-top: 26px;
+        font-size: .85rem;
+        text-align: center;
+    }
+    #btn__unlock{
+        font-size: 1rem;
+        padding: 6px 16px;
+    }
+    .decorate_star.star1{ top: 70px; left: 30px; }
+    .decorate_star.star2{ top: 45px; right: 30px; }
+    .decorate_star.star3{ display: none; }
+    .decorate_star.star5{ display: none; }
+    .decorate_flower--one{ top: 200px; left: 12px; }
+    .decorate_flower--two{ top: 170px; right: 14px; }
+    .decorate_flower--three{ display: none; }
+    .smiley__icon{ bottom: 30px; left: 10px; }
+    .smiley__icon img{ width: 70px; }
+    .decorate_bottom img{ width: 70px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .countdown.celebrating .unit,
+    .decorate_star,
+    .countdown .balloon_one,
+    .countdown .balloon_two,
+    .fa-heart{
+        animation: none;
+    }
+}
