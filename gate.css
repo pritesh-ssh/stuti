@@ -8,11 +8,12 @@
     box-sizing: border-box;
 }
 :root{
-    --color-pink: #feecea;
+    --color-wash: #F3EEFE;
     --color-white: #fff;
     --color-black: #333;
-    --color-text-pink: #FF7882;
-    --color-heart: #FF7882;
+    --color-accent: #A78BFA;
+    --color-accent-deep: #8B5CF6;
+    --art-lavender: hue-rotate(270deg);
     --color-border: #DACCBF;
 }
 html{
@@ -22,7 +23,7 @@ body {
     position: relative;
     font-size: 16px;
     height: 100%;
-    background-image: linear-gradient(var(--color-pink), var(--color-pink));
+    background-image: linear-gradient(var(--color-wash), var(--color-wash));
 }
 #gate-wrapper{
     position: relative;
@@ -97,7 +98,7 @@ body {
     color: var(--color-white);
 }
 .gate-title .line--two{
-    color: var(--color-text-pink);
+    color: var(--color-accent);
 }
 .gate-title .line span{
     transform: translateY(50px);
@@ -141,7 +142,7 @@ body {
     justify-content: space-around;
     align-items: center;
     gap: 12px;
-    background-color: var(--color-text-pink);
+    background-color: var(--color-accent);
     color: var(--color-black);
     border: 3px solid var(--color-black);
     border-radius: 50px;
@@ -182,7 +183,7 @@ body {
     font-family: "Titan One", sans-serif;
     font-size: 3rem;
     line-height: 1;
-    color: var(--color-text-pink);
+    color: var(--color-accent);
     text-shadow: 2px 2px var(--color-black),
                 -2px 2px var(--color-black),
                 2px -2px var(--color-black),
@@ -292,7 +293,7 @@ body {
     z-index: 2;
 }
 .lock__note i{
-    color: var(--color-text-pink);
+    color: var(--color-accent);
 }
 @keyframes fadeIn{
     to{ opacity: 1; }
@@ -313,7 +314,7 @@ body {
 }
 #btn__unlock{
     position: relative;
-    background-color: var(--color-text-pink);
+    background-color: var(--color-accent);
     color: var(--color-black);
     text-decoration: none;
     outline: none;
@@ -332,8 +333,8 @@ body {
     margin-left: 8px;
 }
 #btn__unlock:hover{
-    border-color: var(--color-heart);
-    background-color: var(--color-heart);
+    border-color: var(--color-accent-deep);
+    background-color: var(--color-accent-deep);
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -356,8 +357,8 @@ body {
 }
 
 .fa-heart{
-    color: var(--color-heart);
-    filter: drop-shadow(0 0 3px var(--color-heart));
+    color: var(--color-accent-deep);
+    filter: drop-shadow(0 0 3px var(--color-accent-deep));
     animation: scaleHeart 1s infinite linear;
 }
 @keyframes scaleHeart{
@@ -601,4 +602,19 @@ body {
     .fa-heart{
         animation: none;
     }
+}
+
+/* ---------- lavender re-theme: recolour the pink decorative art -----------
+   These PNGs have pink baked into their pixels, so CSS can only rotate their
+   hue. Matched on src rather than on the ~12 layout selectors, to keep the
+   colour change in one reviewable place. Deliberately excluded: hat.png
+   (mixed blue+pink, rotating breaks it), decorate_flower.png (already cool
+   blue) and heart.png (neutral art, rotation is a no-op).
+   Note "/1.png" not "1.png" -- a bare suffix would also match balloon1.png. */
+img[src$="/1.png"],
+img[src$="balloon1.png"],
+img[src$="balloon2.png"],
+img[src$="decorate.png"],
+img[src$="smiley_icon.png"] {
+    filter: var(--art-lavender);
 }

@@ -7,11 +7,12 @@
     box-sizing: border-box;
 }
 :root{
-    --color-pink: #feecea;
+    --color-wash: #F3EEFE;
     --color-white: #fff;
     --color-black: #333;
-    --color-text-pink: #FF7882;
-    --color-heart: #FF7882;
+    --color-accent: #A78BFA;
+    --color-accent-deep: #8B5CF6;
+    --art-lavender: hue-rotate(270deg);
     --color-bg-letter: #fff8e4;
     --color-border: #DACCBF;
 }
@@ -24,7 +25,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image:linear-gradient(var(--color-pink), var(--color-pink));
+    background-image:linear-gradient(var(--color-wash), var(--color-wash));
 }
 #wrapper{
     position: relative;
@@ -78,7 +79,7 @@ body {
 #btn__letter{
     position: relative;
     margin-top: 30px;
-    background-color: var(--color-text-pink);
+    background-color: var(--color-accent);
     outline: none;
     padding: 5px 15px;
     font-size: 1rem;
@@ -100,8 +101,8 @@ body {
     margin-left: 5px;
 }
 #btn__letter:hover{
-    border-color: var(--color-heart);
-    background-color: var(--color-heart);
+    border-color: var(--color-accent-deep);
+    background-color: var(--color-accent-deep);
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -158,7 +159,7 @@ body {
     }
 }
 .title .birthday{
-    color: var(--color-text-pink);
+    color: var(--color-accent);
 }
 .title .stutu .heart{
     text-shadow: none;
@@ -187,7 +188,7 @@ body {
     display: flex;
     justify-content:space-around;
     align-items: center;
-    background-color: var(--color-text-pink);
+    background-color: var(--color-accent);
     border-radius: 50px;
     margin-top: 20px;
     font-family: "Sriracha", cursive;
@@ -296,7 +297,7 @@ body {
 .text__cricle{
     width: 100px;
     height: 100px;
-    background-color: var(--color-text-pink);
+    background-color: var(--color-accent);
     border-radius: 50%;
     border: 5px solid var(--color-black);
     display: flex;
@@ -321,8 +322,8 @@ body {
     font-size: 0.7rem;
 }
 .fa-heart{
-    color: var(--color-heart);
-    filter: drop-shadow(0 0 3px var(--color-heart));
+    color: var(--color-accent-deep);
+    filter: drop-shadow(0 0 3px var(--color-accent-deep));
     animation: scaleHeart 1s infinite linear;
 }
 .cricle .fa-heart{
@@ -498,7 +499,7 @@ body {
         position: relative;
         margin-top: 17px;
         width: 209px;
-        background-color: var(--color-text-pink);
+        background-color: var(--color-accent);
         outline: none;
         padding: 6px 4px;
         font-size: 1rem;
@@ -569,4 +570,19 @@ body {
     }
 
 
+}
+
+/* ---------- lavender re-theme: recolour the pink decorative art -----------
+   These PNGs have pink baked into their pixels, so CSS can only rotate their
+   hue. Matched on src rather than on the ~12 layout selectors, to keep the
+   colour change in one reviewable place. Deliberately excluded: hat.png
+   (mixed blue+pink, rotating breaks it), decorate_flower.png (already cool
+   blue) and heart.png (neutral art, rotation is a no-op).
+   Note "/1.png" not "1.png" -- a bare suffix would also match balloon1.png. */
+img[src$="/1.png"],
+img[src$="balloon1.png"],
+img[src$="balloon2.png"],
+img[src$="decorate.png"],
+img[src$="smiley_icon.png"] {
+    filter: var(--art-lavender);
 }

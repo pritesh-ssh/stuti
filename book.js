@@ -231,15 +231,15 @@
     ];
 
     var COVER = {
-        to: 'To: Dr. Cutiepiee❤️',
+        to: 'To: Dr. Cutiepiee💜',
         title: 'Happy Birthday',
         image: 'images/1.jpg',
         from: 'From your Babooo',
         hint: 'TAP TO OPEN'
     };
 
-    var INSIDE_COVER = 'For you 💕\n\n🎧 turn your sound on';
-    var THE_END = 'The End 💕';
+    var INSIDE_COVER = 'For you 💜\n\n🎧 turn your sound on';
+    var THE_END = 'The End 💜';
 
     /* ==================== end of editable block ========================== */
 

@@ -1,7 +1,7 @@
 /* ==========================================================================
    book.css — the 5-page 3D letter book
    Opened by the "Click here cutiee" button. Markup is rendered by book.js.
-   Palette tokens (--color-text-pink etc.) come from style.css :root.
+   Palette tokens (--color-accent etc.) come from style.css :root.
    ========================================================================== */
 
 :root {
@@ -12,8 +12,8 @@
     --paper: #fdf6e6;
     --paper-2: #f6ead2;
     --ink: #4a3a34;
-    --board: #c2434f;
-    --board-dark: #8e2c36;
+    --board: #6E56A8;
+    --board-dark: #4A3675;
 }
 
 /* Faint fibre noise, used at low opacity over every paper surface. */
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(ellipse at 50% 45%, rgba(60, 20, 30, 0.82), rgba(0, 0, 0, 0.94));
+    background: radial-gradient(ellipse at 50% 45%, rgba(38, 26, 62, 0.82), rgba(0, 0, 0, 0.94));
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.45s ease, visibility 0.45s;
@@ -71,7 +71,7 @@
 }
 
 .book-icon-btn:hover {
-    background: var(--color-text-pink, #FF7882);
+    background: var(--color-accent, #A78BFA);
     transform: scale(1.08);
 }
 
@@ -97,7 +97,7 @@
 }
 
 .book-nav:hover:not(:disabled) {
-    background: var(--color-text-pink, #FF7882);
+    background: var(--color-accent, #A78BFA);
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -131,7 +131,7 @@
 }
 
 .book-dot.is-current {
-    background: var(--color-text-pink, #FF7882);
+    background: var(--color-accent, #A78BFA);
     transform: scale(1.45);
 }
 
@@ -453,7 +453,7 @@
     font-family: 'Dancing Script', cursive;
     font-size: 2.1rem;
     font-weight: 700;
-    color: var(--color-text-pink, #FF7882);
+    color: var(--color-accent, #A78BFA);
     margin-bottom: 14px;
     flex-shrink: 0;
     overflow-wrap: break-word;
@@ -464,7 +464,7 @@
     width: 74px;
     height: 3px;
     border-radius: 2px;
-    background: var(--color-text-pink, #FF7882);
+    background: var(--color-accent, #A78BFA);
     opacity: 0.5;
     margin-bottom: 20px;
     flex-shrink: 0;
@@ -538,7 +538,7 @@
     display: block;
     height: 100%;
     width: 0%;
-    background: var(--color-text-pink, #FF7882);
+    background: var(--color-accent, #A78BFA);
     border-radius: 2px;
 }
 
@@ -551,7 +551,7 @@
     color: #fff;
     background:
         var(--paper-noise),
-        linear-gradient(150deg, #ff8f98, var(--board) 52%, var(--board-dark));
+        linear-gradient(150deg, #C4B0F0, var(--board) 52%, var(--board-dark));
     background-blend-mode: overlay, normal;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25),
                 inset 0 0 60px rgba(0, 0, 0, 0.32);
@@ -731,7 +731,7 @@
         linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 46%),
         repeating-linear-gradient(90deg,
             rgba(255, 255, 255, 0.28) 0 3px, rgba(255, 255, 255, 0) 3px 7px);
-    background-color: var(--tape-tone, #f3b7c0);
+    background-color: var(--tape-tone, #CDB8EF);
     /* torn short ends; clip-path kills box-shadow, so the lift is a filter */
     clip-path: polygon(
         6% 0%, 94% 0%,
@@ -741,10 +741,10 @@
     filter: drop-shadow(0 1px 1px rgba(60, 40, 26, 0.3));
 }
 
-.scrap__tape.is-tone0 { --tape-tone: #f2b3bd; }
+.scrap__tape.is-tone0 { --tape-tone: #CDB8EF; }
 .scrap__tape.is-tone1 { --tape-tone: #eddfb4; }
 .scrap__tape.is-tone2 { --tape-tone: #b9dcd0; }
-.scrap__tape.is-tone3 { --tape-tone: #d2c5e6; }
+.scrap__tape.is-tone3 { --tape-tone: #C6D3F0; }
 
 .scrap__tape.is-tl { top: -10px; left: -17px; transform: rotate(-38deg); }
 .scrap__tape.is-tr { top: -10px; right: -17px; transform: rotate(38deg); }
@@ -863,10 +863,10 @@
     transform-origin: 0 50%;
     /* the pale band down the middle is the satin highlight */
     background: linear-gradient(180deg,
-        #bb3550, #e4677f 26%, #ffc4d0 50%, #e4677f 72%, #b02f48);
+        #5B3F8F, #8A6BC4 26%, #DDD0F5 50%, #8A6BC4 72%, #4E3580);
     /* swallowtail notch cut into the near end */
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 8% 50%);
-    filter: drop-shadow(0 2px 3px rgba(60, 20, 28, 0.45));
+    filter: drop-shadow(0 2px 3px rgba(38, 26, 62, 0.45));
 }
 
 .scrap__bow {
@@ -878,12 +878,12 @@
     height: auto;
     overflow: visible;
     transform: rotate(var(--tilt, 0deg));
-    filter: drop-shadow(0 2px 3px rgba(60, 20, 28, 0.45));
+    filter: drop-shadow(0 2px 3px rgba(38, 26, 62, 0.45));
 }
 
-.bow__loop { fill: #dd4d66; }
-.bow__tail { fill: #b53149; }
-.bow__knot { fill: #f28ea2; }
+.bow__loop { fill: #7F5FC0; }
+.bow__tail { fill: #5C3F96; }
+.bow__knot { fill: #B9A3E4; }
 
 /* ---------- handwriting, doodles, stickers, torn note --------------------- */
 
@@ -922,7 +922,7 @@
 
 .scrap__doodle path {
     fill: none;
-    stroke: #b8656b;
+    stroke: #8878B8;
     stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -937,7 +937,8 @@
     width: var(--w);
     height: auto;
     transform: rotate(var(--tilt, 0deg));
-    filter: drop-shadow(0 2px 3px rgba(50, 30, 18, 0.45));
+    filter: var(--art-lavender, hue-rotate(270deg))
+            drop-shadow(0 2px 3px rgba(50, 30, 18, 0.45));
 }
 
 .scrap__note {
